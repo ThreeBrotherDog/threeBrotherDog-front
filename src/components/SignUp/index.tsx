@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from '@emotion/styled';
+import { lightTheme } from 'src/theme';
 
 const Background = styled.div`
   background-color: #f4f4fc;
@@ -43,9 +44,20 @@ const LectureModal = styled.div``;
 
 const FavoriteModal = styled.div``;
 
-const RegisterBtn = styled.button``;
+const RegisterBtn = styled.button`
+  cursor: pointer;
+  width: 509px;
+  height: 56px;
+  color: white;
+  border-style: none;
+  border-radius: 6px;
+  background-color: #1c00ff;
+  font-size: 19px;
+`;
 
-const Register = () => (
+const Register = () => {
+
+  return (
   <>
     <Background>
       <SignUpForm>
@@ -66,10 +78,12 @@ const Register = () => (
           <div>
             <FavoriteModal />
           </div>
+          <RegisterBtn>가입하기</RegisterBtn>
         </Div>
       </SignUpForm>
     </Background>
   </>
-);
+  )
+};
 
 export default Register;
