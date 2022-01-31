@@ -15,7 +15,7 @@ const Head = styled.header`
   justify-content: space-between;
   margin-left: 100px;
   margin-right: 100px;
-  margin-top: 15px;
+  height: 100%;
 `;
 // const Logo = styled.div
 const LoginBtn = styled.button`
