@@ -15,9 +15,9 @@ const Head = styled.header`
   margin-right: 100px;
 `;
 // const Logo = styled.div
-const BtnOne = styled.button`
+const LoginBtn = styled.button`
   margin-right: 20px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   width: 130px;
   height: 40px;
@@ -25,14 +25,14 @@ const BtnOne = styled.button`
   border-color: #1c00ff;
   background-color: white;
 `;
-const BtnTwo = styled.button`
+const SignUpBtn = styled.button`
   margin-right: 20px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   width: 130px;
   height: 40px;
   color: white;
-  border-color: #1c00ff;
+  border-style: none;
   background-color: #1c00ff;
 `;
 const Ul = styled.ul`
@@ -77,8 +77,8 @@ const Header = () => (
         </Li>
       </Ul>
       <div className="btn">
-        <BtnOne>로그인</BtnOne>
-        <BtnTwo>회원가입</BtnTwo>
+        <LoginBtn>로그인</LoginBtn>
+        <SignUpBtn>회원가입</SignUpBtn>
       </div>
     </Head>
   </Top>
