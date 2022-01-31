@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { lightTheme } from 'src/theme';
 
 const Top = styled.div`
-  background-color: #FFFFF;
+  position: absolute;
+  background-color: ${lightTheme.PUBLIC_WHITE};
   width: 1920px;
   height: 69px;
-  display: absolute;
 `;
 const Head = styled.header`
   display: flex;
@@ -14,6 +15,7 @@ const Head = styled.header`
   justify-content: space-between;
   margin-left: 100px;
   margin-right: 100px;
+  margin-top: 15px;
 `;
 // const Logo = styled.div
 const LoginBtn = styled.button`
