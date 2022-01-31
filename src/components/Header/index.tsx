@@ -6,6 +6,7 @@ const Top = styled.div`
   background-color: #FFFFF;
   width: 1920px;
   height: 69px;
+  display: absolute;
 `;
 const Head = styled.header`
   display: flex;
@@ -78,7 +79,9 @@ const Header = () => (
       </Ul>
       <div className="btn">
         <LoginBtn>로그인</LoginBtn>
-        <SignUpBtn>회원가입</SignUpBtn>
+        <Link href="/signup" passHref>
+          <SignUpBtn>회원가입</SignUpBtn>
+        </Link>
       </div>
     </Head>
   </Top>
