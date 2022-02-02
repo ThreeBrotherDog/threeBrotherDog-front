@@ -68,7 +68,6 @@ const Header = () => (
         </Li>
 
         <Li>
-          {' '}
           <Link href="/" passHref>
             <NextLink>Lecture review</NextLink>
           </Link>
