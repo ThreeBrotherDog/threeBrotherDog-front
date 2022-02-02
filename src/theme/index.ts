@@ -10,6 +10,7 @@ const responsiveView = {
 export const lightTheme = {
   PUBLIC_WHITE: '#fff',
   PUBLIC_BLACK: '#000',
+  BORDER_RADIUS: '6px',
 };
 
 export type ThemeType = typeof lightTheme;
