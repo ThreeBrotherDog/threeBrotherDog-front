@@ -3,6 +3,9 @@ import styled from '@emotion/styled';
 import { lightTheme } from 'src/theme';
 import useInput from 'src/hooks/useInput';
 import Modal from 'react-modal';
+import { useForm } from 'react-hook-form';
+import Header from '../Header';
+import MajorModal from '../Modal';
 
 const Background = styled.div`
   background-color: #f4f4fc;
@@ -10,7 +13,7 @@ const Background = styled.div`
   width: 1920px;
   height: 1080px;
 `;
-const SignUpForm = styled.form`
+const SignUpDiv = styled.div`
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -101,9 +104,15 @@ const RegisterBtn = styled.button`
   font-size: 19px;
 `;
 
+interface DataForm {
+  nick: 'string';
+  email: 'string';
+}
+
 const Register = () => {
   // const [nick, onChangeNick] = useInput('');
   // const [email, onChangeEmail] = useInput('');
+  /*
   const [nick, setNick] = useState('');
   const onChangeNick = useCallback((e) => {
     setNick(e.target.value);
@@ -122,76 +131,101 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
   };
-
+  */
+  /* Modal  */
   const [modalLecture, setModalLecture] = useState(false);
   const modalClose = (e) => {
     setModalLecture(false);
   };
   const modalOpen = (e) => {
     setModalLecture(true);
-    return (
-      <>
-        <Modal />
-      </>
-    );
   };
 
+  /* React-Hook-Form */
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<DataForm>();
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   return (
     <>
       <Background>
-        <SignUpForm>
+        <SignUpDiv>
           <Div>
             <SignUpLabel>회원가입</SignUpLabel>
             <br /> <br /> <br /> <br /> <br />
-            <div>
-              <Label htmlFor="user-nick">닉네임</Label>
-              <br />
-              <NickInput
-                name="user-nick"
-                required
-                onChange={onChangeNick}
-                value={nick}
-                placeholder="닉네임을 입력해주세요."
-              />
-            </div>
-            <br /> <br /> <br />
-            <div>
-              <Label htmlFor="user-email">이메일</Label>
-              <br />
-              <EmailDiv>
-                <EmailInput
-                  name="user-email"
-                  required
-                  onChange={onChangeEmail}
-                  value={email}
-                  placeholder="인증메일이 발송되니 정확히 입력해주세요."
-                  onBlur={emailCheck}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <Label htmlFor="user-nick">닉네임</Label>
+                <br />
+                <NickInput
+                  // name="user-nick"
+                  // required
+                  // onChange={onChangeNick}
+                  // value={nick}
+                  placeholder="닉네임을 입력해주세요."
+                  {...register('nick', {
+                    required: true,
+                  })}
+                  type="text"
                 />
-                <EmailBtn>인증</EmailBtn>
-              </EmailDiv>
-              <br />
-              <ValidationLabel>ㄴ 대학교 웹메일 계정만 웹메일이 발송 가능합니다.</ValidationLabel>
-              <br />
-              <ValidationLabel>ㄴ 형식: 학번@bu.ac.kr</ValidationLabel>
-            </div>
-            <br /> <br /> <br />
-            <div>
-              <Label htmlFor="user-lecture">전공 선택</Label>
-              <LectureModal type="button" onClick={modalOpen} placeholder="최대 2개까지 선택할 수 있습니다.">
-                {/* // eslint-disable-next-line react/jsx-boolean-value */}
-              </LectureModal>
-            </div>
-            <br /> <br /> <br />
-            <div>
-              <Label htmlFor="user-favorite">관심사 선택</Label>
-              <FavoriteModal placeholder="#팀플 없음 #학점 잘줌" />
-            </div>
-            <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-            <RegisterBtn type="submit" onSubmit={onSubmit}>
-              가입하기
-            </RegisterBtn>
+                <ValidationLabel>{errors?.nick?.message}</ValidationLabel>
+              </div>
+              <br /> <br /> <br />
+              <div>
+                <Label htmlFor="user-email">이메일</Label>
+                <br />
+                <EmailDiv>
+                  <EmailInput
+                    // name="email"
+                    // required
+                    // onChange={onChangeEmail}
+                    // value={email}
+                    placeholder="인증메일이 발송되니 정확히 입력해주세요."
+                    // onBlur={emailCheck}
+                    {...register('email', {
+                      required: true,
+                      pattern: {
+                        // /\d{8}+@bu.ac.kr$/
+                        value: /[A-Za-z0-9]+@\w[bu]+\.\w[ac]+\.\w[kr]$/,
+                        message: '이메일 형식이 틀렸습니다.',
+                      },
+                    })}
+                    type="text"
+                  />
+                  <EmailBtn>인증</EmailBtn>
+                </EmailDiv>
+                <br />
+                <ValidationLabel>{errors?.email?.message}</ValidationLabel>
+                <br />
+                <ValidationLabel>ㄴ 대학교 웹메일 계정만 웹메일이 발송 가능합니다.</ValidationLabel>
+                <br />
+                <ValidationLabel>ㄴ 형식: @bu.ac.kr</ValidationLabel>
+              </div>
+              <br /> <br /> <br />
+              <div>
+                <Label htmlFor="user-lecture">전공 선택</Label>
+                <LectureModal type="button" onClick={modalOpen} placeholder="최대 2개까지 선택할 수 있습니다.">
+                  {/* // eslint-disable-next-line react/jsx-boolean-value */}
+                </LectureModal>
+                <Modal width="400" height="300" isOpen={modalLecture}>
+                  <MajorModal />
+                </Modal>
+              </div>
+              <br /> <br /> <br />
+              <div>
+                <Label htmlFor="user-favorite">관심사 선택</Label>
+                <FavoriteModal placeholder="#팀플 없음 #학점 잘줌" />
+              </div>
+              <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+              <RegisterBtn>회원가입</RegisterBtn>
+            </form>
           </Div>
-        </SignUpForm>
+        </SignUpDiv>
       </Background>
     </>
   );
