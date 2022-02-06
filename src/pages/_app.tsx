@@ -2,6 +2,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import GlobalStyle from 'src/theme/globalStyle';
+import { ThemeProvider } from '@emotion/react';
+import { lightTheme } from 'src/theme';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -20,7 +22,9 @@ const App = ({ Component, pageProps }: AppProps) => (
       <title>Co Class</title>
     </Head>
     <GlobalStyle />
-    <Component {...pageProps} />
+    <ThemeProvider theme={lightTheme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
   </>
 );
 

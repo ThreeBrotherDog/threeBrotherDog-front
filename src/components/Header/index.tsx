@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import { lightTheme } from 'src/theme';
 
 const Top = styled.div`
   position: absolute;
-  background-color: ${lightTheme.PUBLIC_WHITE};
+  background-color: ${(props) => props.theme.PUBLIC_WHITE};
   width: 1920px;
   height: 69px;
 `;
@@ -20,23 +19,23 @@ const Head = styled.header`
 // const Logo = styled.div
 const LoginBtn = styled.button`
   margin-right: 20px;
-  border-radius: 6px;
+  border-radius: ${(props) => props.theme.BORDER_RADIUS};
   cursor: pointer;
   width: 130px;
   height: 40px;
-  color: #1c00ff;
-  border-color: #1c00ff;
+  color: ${(props) => props.theme.PUBLIC_BLUE};
+  border-color: ${(props) => props.theme.PUBLIC_BLUE};
   background-color: white;
 `;
 const SignUpBtn = styled.button`
   margin-right: 20px;
-  border-radius: 6px;
+  border-radius: ${(props) => props.theme.BORDER_RADIUS};
   cursor: pointer;
   width: 130px;
   height: 40px;
   color: white;
   border-style: none;
-  background-color: #1c00ff;
+  background-color: ${(props) => props.theme.PUBLIC_BLUE};
 `;
 const Ul = styled.ul`
   justify-content: space-around;
@@ -48,11 +47,11 @@ const Li = styled.li`
 `;
 const Logo = styled.div`
   font-size: 30px;
-  color: #1c00ff;
+  color: ${(props) => props.theme.PUBLIC_BLUE};
 `;
 
 const NextLink = styled.a`
-  color: #1c00ff;
+  color: ${(props) => props.theme.PUBLIC_BLUE};
   text-decoration: none;
 `;
 
@@ -63,18 +62,18 @@ const Header = () => (
       <Ul>
         <Li>
           <Link href="/" passHref>
-            <NextLink>main</NextLink>
+            <NextLink>메인</NextLink>
           </Link>
         </Li>
 
         <Li>
           <Link href="/" passHref>
-            <NextLink>Lecture review</NextLink>
+            <NextLink>강의평</NextLink>
           </Link>
         </Li>
         <Li>
           <Link href="/" passHref>
-            <NextLink>myPage</NextLink>
+            <NextLink>마이페이지</NextLink>
           </Link>
         </Li>
       </Ul>
