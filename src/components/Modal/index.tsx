@@ -30,11 +30,6 @@ const Ul = styled.ul`
   width: 150px;
   text-align: center;
 `;
-const SubUl = styled.ul`
-  margin-top: 7px;
-  background-color: #fff;
-  display: none;
-`;
 
 const CompleteBtn = styled.button`
   cursor: pointer;
@@ -47,19 +42,103 @@ const CompleteBtn = styled.button`
   font-size: 19px;
 `;
 
+const MainUl = styled.ul`
+  width: 300px;
+  overflow: hidden;
+  margin: 150px auto;
+`;
+const MainLi = styled.li`
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background-color: #5778ff;
+  transition-duration: 0.5s;
+`;
+const SubUl = styled.ul`
+  height: 0;
+  overflow: hidden;
+`;
+const SubLi = styled.li`
+  line-height: 50px;
+  background-color: #94a9ff;
+  height: 250px;
+  transition-duration: 1s;
+`;
+const A = styled.a`
+  color: #fff;
+`;
 const MajorModal = () => (
   <Background>
     <Div>
       <Label>전공을 선택해주세요</Label>
       <LabelSub>선택할 수 있는 전공은 최대 2개까지 선택할 수 있어요.</LabelSub>
       <MenuDiv>
-        <ul>
-          {' '}
-          공과대학
-          <li>소프트웨어학과</li>
-          <li>데이터</li>
-          <li>소프트웨어학과</li>
-        </ul>
+        <MainUl>
+          <MainLi>
+            <a href="#">MENU1</a>
+            <SubUl>
+              <SubLi>
+                <a href="#">submenu01</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu02</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu03</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu04</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu05</a>
+              </SubLi>
+            </SubUl>
+          </MainLi>
+        </MainUl>
+        <MainUl>
+          <MainLi>
+            <a href="#">MENU1</a>
+            <SubUl>
+              <SubLi>
+                <a href="#">submenu01</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu02</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu03</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu04</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu05</a>
+              </SubLi>
+            </SubUl>
+          </MainLi>
+        </MainUl>
+        <MainUl>
+          <MainLi>
+            <a href="#">MENU1</a>
+            <SubUl>
+              <SubLi>
+                <a href="#">submenu01</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu02</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu03</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu04</a>
+              </SubLi>
+              <SubLi>
+                <a href="#">submenu05</a>
+              </SubLi>
+            </SubUl>
+          </MainLi>
+        </MainUl>
 
         <CompleteBtn>완료</CompleteBtn>
       </MenuDiv>

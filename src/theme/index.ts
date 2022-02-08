@@ -9,8 +9,14 @@ const responsiveView = {
 
 export const lightTheme = {
   PUBLIC_WHITE: '#fff',
-  PUBLIC_BLACK: '#000',
+  PUBLIC_BLACK: '#212121',
   BORDER_RADIUS: '6px',
+  BACKGROUND_COLOR: '#f4f4f4',
+  PUBLIC_PURPLE: '#9082FF',
+  PUBLIC_BLUE: '#1C00FF',
+  HIGHLIGHT_COLOR: '#fe864D',
+  SUB_TITLE_OR_BODY_COLOR: '#666666',
+  ICON_COLOR: '#9e9e9e',
 };
 
 export type ThemeType = typeof lightTheme;
