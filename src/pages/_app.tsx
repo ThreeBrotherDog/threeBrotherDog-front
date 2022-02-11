@@ -1,6 +1,9 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import GlobalStyle from 'src/theme/globalStyle';
+import { ThemeProvider } from '@emotion/react';
+import { lightTheme } from 'src/theme';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -16,9 +19,12 @@ const App = ({ Component, pageProps }: AppProps) => (
         type="text/css"
         href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
       />
-      <title>Test</title>
+      <title>Co Class</title>
     </Head>
-    <Component {...pageProps} />
+    <GlobalStyle />
+    <ThemeProvider theme={lightTheme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
   </>
 );
 

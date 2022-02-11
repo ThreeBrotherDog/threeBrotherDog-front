@@ -1,5 +1,11 @@
 import React from 'react';
+import Header from 'src/components/Header';
+import HomeComponent from 'src/components/Home';
 
-const Home = () => <h1>gasgfsa</h1>;
-
+const Home = () => (
+  <>
+    <Header />
+    <HomeComponent />
+  </>
+);
 export default Home;
