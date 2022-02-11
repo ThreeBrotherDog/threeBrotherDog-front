@@ -75,54 +75,10 @@ const MajorModal = () => (
       <MenuDiv>
         <MainUl>
           <MainLi>
-            <a href="#">MENU1</a>
+            <A href="#">MENU1</A>
             <SubUl>
               <SubLi>
-                <a href="#">submenu01</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu02</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu03</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu04</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu05</a>
-              </SubLi>
-            </SubUl>
-          </MainLi>
-        </MainUl>
-        <MainUl>
-          <MainLi>
-            <a href="#">MENU1</a>
-            <SubUl>
-              <SubLi>
-                <a href="#">submenu01</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu02</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu03</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu04</a>
-              </SubLi>
-              <SubLi>
-                <a href="#">submenu05</a>
-              </SubLi>
-            </SubUl>
-          </MainLi>
-        </MainUl>
-        <MainUl>
-          <MainLi>
-            <a href="#">MENU1</a>
-            <SubUl>
-              <SubLi>
-                <a href="#">submenu01</a>
+                <A href="#">submenu01</A>
               </SubLi>
               <SubLi>
                 <a href="#">submenu02</a>
